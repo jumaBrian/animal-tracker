@@ -29,30 +29,8 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         // animals catalogue
-        post("/AnimalDetail", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            String name = request.queryParams("name");
-            String type = request.queryParams("type");
-            String health = request.queryParams("health");
-            String age = request.queryParams("age");
-            model.put("name", name);
-            model.put("type", type);
-            model.put("health", health);
-            model.put("age",age);
-
-            if(type == "unthreatened"){
-                UnthreatenedSpecies animal = new UnthreatenedSpecies(name,age,health,type);
-                animal.save();
-            }
-            else {
-                EndangeredSpecies animal = new EndangeredSpecies(name,age,health,type);
-                animal.save();
-            }
 
 
-            return new ModelAndView(model, "displayAnimals.hbs");
-
-        }, new HandlebarsTemplateEngine());
 
         //
     }
