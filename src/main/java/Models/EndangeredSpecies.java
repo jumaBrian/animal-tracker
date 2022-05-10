@@ -1,13 +1,13 @@
 package Models;
 
-public class Endangered extends Animal {
+public class EndangeredSpecies extends Animal {
     // fields
     private static final String STATUS = "endangered";
     private String health;
     private String age;
 
     // behaviour
-    public Endangered(String name, String health, String age ,String STATUS) {
+    public EndangeredSpecies(String name, String health, String age , String STATUS) {
         this.name = name;
         this.health = health;
         this.age = age;

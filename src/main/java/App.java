@@ -1,5 +1,8 @@
 
 import static spark.Spark.*;
+
+import Models.EndangeredSpecies;
+import Models.UnthreatenedSpecies;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -37,14 +40,15 @@ public class App {
             model.put("health", health);
             model.put("age",age);
 
-            if(type == "safe"){
-                Safe animal = new Safe(name,age,health,type);
+            if(type == "unthreatened"){
+                UnthreatenedSpecies animal = new UnthreatenedSpecies(name,age,health,type);
                 animal.save();
             }
             else {
-                Endangered animal = new Endangered(name,age,health,type);
+                EndangeredSpecies animal = new EndangeredSpecies(name,age,health,type);
                 animal.save();
             }
+
 
             return new ModelAndView(model, "displayAnimals.hbs");
 
