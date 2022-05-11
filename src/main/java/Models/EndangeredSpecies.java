@@ -20,7 +20,7 @@ public class EndangeredSpecies extends Animal {
         this.age = age;
         this.type = STATUS;
     }
-
+    // class wide data
     public static EndangeredSpecies find(int id){
         try (Connection con = Database.sql2o.open()) {
             String sql = "SELECT * FROM animals where id=:id";
